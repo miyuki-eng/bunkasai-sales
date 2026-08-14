@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>文化祭 売上管理</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <h1>🎪 文化祭 売上管理</h1>
+
+    <nav class="navigation">
+
+        <a href="index.html"
+           class="nav-link active">
+            📊 売上明細
+        </a>
+
+        <a href="register.html"
+           class="nav-link">
+            ➕ 売上登録
+        </a>
+
+        <a href="manage.html"
+           class="nav-link">
+            ⚙️ 商品・制作者管理
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="main-content">
+
+
+    <!-- =========================
+         開催イベント
+    ========================== -->
+
+    <section class="event-section">
+
+        <h2>🎪 開催イベント</h2>
+
+        <label for="eventSelect">
+            表示する文化祭
+        </label>
+
+        <select id="eventSelect">
+
+            <option value="">
+                開催イベントを選択
+            </option>
+
+        </select>
+
+    </section>
+
+
+    <!-- =========================
+         売上まとめ
+    ========================== -->
+
+    <section class="summary-section">
+
+        <h2>🎉 売上まとめ</h2>
+
+
+        <div class="summary-cards">
+
+            <div class="summary-card">
+
+                <p class="summary-title">
+                    📅 1日目
+                </p>
+
+                <p
+                    id="day1Total"
+                    class="summary-price">
+                    ￥0
+                </p>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <p class="summary-title">
+                    📅 2日目
+                </p>
+
+                <p
+                    id="day2Total"
+                    class="summary-price">
+                    ￥0
+                </p>
+
+            </div>
+
+
+            <div class="summary-card total-card">
+
+                <p class="summary-title">
+                    🎉 2日間合計
+                </p>
+
+                <p
+                    id="allTotal"
+                    class="summary-price">
+                    ￥0
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         絞り込み
+    ========================== -->
+
+    <section class="filter-section">
+
+        <h2>🔎 売上を絞り込む</h2>
+
+
+        <div class="filter-item">
+
+            <label for="dayFilter">
+                📅 開催日
+            </label>
+
+            <select id="dayFilter">
+
+                <option value="all">
+                    すべて
+                </option>
+
+                <option value="1">
+                    1日目
+                </option>
+
+                <option value="2">
+                    2日目
+                </option>
+
+
+            </select>
+
+        </div>
+
+
+        <div class="filter-item">
+
+            <label for="creatorFilter">
+                👤 制作者
+            </label>
+
+            <select id="creatorFilter">
+
+                <option value="all">
+                    全員
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="filter-item">
+
+            <label for="productFilter">
+                🛍️ 商品名
+            </label>
+
+            <select id="productFilter">
+
+                <option value="all">
+                    すべて
+                </option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         売上明細
+    ========================== -->
+
+    <section class="sales-section">
+
+        <h2>📋 売上明細</h2>
+
+        <div id="salesContainer"></div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================
+     削除確認
+========================== -->
+
+<div
+    id="deleteModal"
+    class="modal hidden">
+
+    <div class="modal-content">
+
+        <h2>🗑️ 売上を削除</h2>
+
+        <p>
+            この売上記録を削除しますか？
+        </p>
+
+        <div class="modal-buttons">
+
+            <button
+                type="button"
+                id="cancelDeleteButton">
+                キャンセル
+            </button>
+
+            <button
+                type="button"
+                id="confirmDeleteButton">
+                削除する
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     編集
+========================== -->
+
+<div
+    id="editModal"
+    class="modal hidden">
+
+    <div class="modal-content">
+
+        <h2>✏️ 売上を編集</h2>
+
+
+        <label>
+            商品名
+        </label>
+
+        <input
+            id="editProductName"
+            type="text"
+        >
+
+
+        <label>
+            個数
+        </label>
+
+        <input
+            id="editQuantity"
+            type="number"
+        >
+
+
+        <label>
+            単価
+        </label>
+
+        <input
+            id="editUnitPrice"
+            type="number"
+        >
+
+
+        <div class="modal-buttons">
+
+            <button id="cancelEditButton">
+                キャンセル
+            </button>
+
+            <button id="confirmEditButton">
+                保存する
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script type="module" src="script.js"></script>
+
+
+</body>
+
+</html>
